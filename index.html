@@ -1,1 +1,106 @@
-<!DOCTYPE html> <html lang="ja"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>掲示板サイト</title> <style> body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; } .container { width: 80%; margin: 0 auto; background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } h1 { text-align: center; color: #333; } .form-group { margin-bottom: 15px; } .form-group label { display: block; margin-bottom: 5px; } .form-group input, .form-group textarea { width: 100%; padding: 10px; box-sizing: border-box; } .form-group button { padding: 10px 20px; background-color: #5cb85c; color: #fff; border: none; cursor: pointer; } .form-group button:hover { background-color: #4cae4c; } .posts { margin-top: 20px; } .post { border-bottom: 1px solid #ddd; padding: 10px 0; } .post h3 { margin: 0; color: #333; } .post p { margin: 5px 0 0; color: #666; } </style> </head> <body> <div class="container"> <h1>掲示板</h1> <div class="form-group"> <label for="name">名前:</label> <input type="text" id="name" placeholder="名前を入力してください"> </div> <div class="form-group"> <label for="message">メッセージ:</label> <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea> </div> <div class="form-group"> <button onclick="postMessage()">投稿</button> </div> <div class="posts" id="posts"> <!-- 投稿がここに表示されます --> </div> </div> <script> function postMessage() { const name = document.getElementById('name').value; const message = document.getElementById('message').value; if (name && message) { const postContainer = document.createElement('div'); postContainer.classList.add('post'); const postName = document.createElement('h3'); postName.textContent = name; const postMessage = document.createElement('p'); postMessage.textContent = message; postContainer.appendChild(postName); postContainer.appendChild(postMessage); document.getElementById('posts').appendChild(postContainer); document.getElementById('name').value = ''; document.getElementById('message').value = ''; } else { alert('名前とメッセージを入力してください。'); } } </script> </body> </html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板サイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* 角を丸くする */
+        }
+        .form-group button:hover {
+            background-color: #4cae4c;
+        }
+        .posts {
+            margin-top: 20px;
+        }
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .post h3 {
+            margin: 0;
+            color: #333;
+        }
+        .post p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>掲示板</h1>
+        <div class="form-group">
+            <label for="name">名前:</label>
+            <input type="text" id="name" placeholder="名前を入力してください">
+        </div>
+        <div class="form-group">
+            <label for="message">メッセージ:</label>
+            <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea>
+        </div>
+        <div class="form-group">
+            <button onclick="postMessage()">投稿</button>
+        </div>
+        <div class="posts" id="posts">
+            <!-- 投稿がここに表示されます -->
+        </div>
+    </div>
+    <script>
+        function postMessage() {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            if (name && message) {
+                const postContainer = document.createElement('div');
+                postContainer.classList.add('post');
+                const postName = document.createElement('h3');
+                postName.textContent = name;
+                const postMessage = document.createElement('p');
+                postMessage.textContent = message;
+                postContainer.appendChild(postName);
+                postContainer.appendChild(postMessage);
+                document.getElementById('posts').appendChild(postContainer);
+                document.getElementById('name').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('名前とメッセージを入力してください。');
+            }
+        }
+    </script>
+</body>
+</html>
